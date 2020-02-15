@@ -1,0 +1,41 @@
+///////////////////////////////////////////////////////////////
+// IMPORTS
+///////////////////////////////////////////////////////////////
+import React from 'react';
+
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+import ResultOldApi from './ResultOldApi';
+import ResultNewApi from './ResultNewApi';
+
+///////////////////////////////////////////////////////////////
+// COMPONENTS
+///////////////////////////////////////////////////////////////
+class CaseStudyResult extends React.Component {
+
+  ///////////////////////////////////////////////////////////////
+  // RENDERS
+  ///////////////////////////////////////////////////////////////
+  render() {
+    return (
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={12}>
+          <Typography variant="h6">Old API</Typography>
+          <ResultOldApi />
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <Typography variant="h6">New API</Typography>
+          <ResultNewApi />
+        </Grid>
+      </Grid>
+    );
+  }
+
+}
+
+
+///////////////////////////////////////////////////////////////
+// EXPORTS
+///////////////////////////////////////////////////////////////
+export default CaseStudyResult;

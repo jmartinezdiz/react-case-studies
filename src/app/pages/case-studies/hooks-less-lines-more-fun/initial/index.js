@@ -1,0 +1,63 @@
+///////////////////////////////////////////////////////////////
+// IMPORTS
+///////////////////////////////////////////////////////////////
+import React from 'react';
+
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+
+import Counter from './components/Counter';
+
+///////////////////////////////////////////////////////////////
+// COMPONENTS
+///////////////////////////////////////////////////////////////
+class CaseStudyInitial extends React.Component {
+
+  ///////////////////////////////////////////////////////////////
+  // CONSTRUCTOR
+  ///////////////////////////////////////////////////////////////
+  constructor(props, context) {
+    super(props, context);
+    this.state = { working: false };
+  }
+
+  ///////////////////////////////////////////////////////////////
+  // EVENTS
+  ///////////////////////////////////////////////////////////////
+  onClickButton(e) {
+    e.preventDefault();
+    this.setState({ working: !this.state.working });
+  }
+
+  ///////////////////////////////////////////////////////////////
+  // RENDERS
+  ///////////////////////////////////////////////////////////////
+  renderCounter() {
+    if (this.state.working) {
+      return (
+        <Grid item xs={6} sm={6}>
+          <Counter initValue={5} />
+        </Grid>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <Grid container spacing={3}>
+        <Grid item xs={6} sm={6}>
+          <Button variant="outlined" color="primary" onClick={(e) => this.onClickButton(e)}>
+            {this.state.working ? "Stop" : "Play"}
+          </Button>
+        </Grid>
+        {this.renderCounter()}
+      </Grid>
+    );
+  }
+
+}
+
+///////////////////////////////////////////////////////////////
+// EXPORTS
+///////////////////////////////////////////////////////////////
+export default CaseStudyInitial;

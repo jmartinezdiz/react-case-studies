@@ -1,0 +1,45 @@
+///////////////////////////////////////////////////////////////
+// IMPORTS
+///////////////////////////////////////////////////////////////
+import React from 'react';
+
+import Grid from '@material-ui/core/Grid';
+
+import Partial from './Partial';
+
+///////////////////////////////////////////////////////////////
+// COMPONENTS
+///////////////////////////////////////////////////////////////
+class Template extends React.Component {
+
+  ///////////////////////////////////////////////////////////////
+  // RENDERS
+  ///////////////////////////////////////////////////////////////
+  render() {
+    return (
+      <Grid container spacing={3}>
+        <Grid item xs={3} sm={3}>
+          <Partial
+            user={this.props.user}
+            login={this.props.login}
+            logout={this.props.logout}
+          />
+        </Grid>
+        <Grid item xs={3} sm={3}>
+          <Partial
+            user={this.props.user}
+            login={this.props.login}
+            logout={this.props.logout}
+          />
+        </Grid>
+      </Grid>
+    );
+  }
+
+}
+
+///////////////////////////////////////////////////////////////
+// EXPORTS
+///////////////////////////////////////////////////////////////
+export default Template;
+

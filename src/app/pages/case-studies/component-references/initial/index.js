@@ -1,0 +1,62 @@
+///////////////////////////////////////////////////////////////
+// IMPORTS
+///////////////////////////////////////////////////////////////
+import React from 'react';
+
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+
+import AlertDialog from './components/AlertDialog';
+
+///////////////////////////////////////////////////////////////
+// COMPONENTS
+///////////////////////////////////////////////////////////////
+class CaseStudyInitial extends React.Component {
+
+  ///////////////////////////////////////////////////////////////
+  // CONSTRUCTOR
+  ///////////////////////////////////////////////////////////////
+  constructor(props, context) {
+    super(props, context);
+    this.state = { dialogOpened: false };
+  }
+
+  ///////////////////////////////////////////////////////////////
+  // EVENTS
+  ///////////////////////////////////////////////////////////////
+  onClickButton(e) {
+    e.preventDefault();
+    this.setState({ dialogOpened: true });
+  }
+
+  onCloseDialog() {
+    this.setState({ dialogOpened: false });
+  }
+
+  ///////////////////////////////////////////////////////////////
+  // RENDERS
+  ///////////////////////////////////////////////////////////////
+  render() {
+    return (
+      <Grid container spacing={3}>
+        <AlertDialog
+          opened={this.state.dialogOpened}
+          title="Alert title"
+          content="Alert content"
+          onClose={() => this.onCloseDialog()}
+        />
+        <Grid item xs={6} sm={6}>
+          <Button variant="outlined" color="primary" onClick={(e) => this.onClickButton(e)}>
+            Open dialog
+          </Button>
+        </Grid>
+      </Grid>
+    );
+  }
+
+}
+
+///////////////////////////////////////////////////////////////
+// EXPORTS
+///////////////////////////////////////////////////////////////
+export default CaseStudyInitial;
